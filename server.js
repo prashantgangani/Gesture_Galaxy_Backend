@@ -16,13 +16,7 @@ app.use(cors());
 app.use('/api/auth', authRoutes); // Authentication routes
 app.use('/api/ml', mlRoutes); // ML prediction routes
 
-// Serve static files from the frontend
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
-
-// Catch-all route to serve the frontend
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-});
+// ...frontend static serving removed for API-only deployment
 
 // Handle 404 errors
 app.use((req, res, next) => {
